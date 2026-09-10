@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "thymos"
+name = "alma-affect-kit"
 dynamic = ["version"]
 description = "Python simulation engine for ALMA, A Layered Model of Affect (Gebhard, AAMAS'05): OCC emotions, PAD moods, Big Five personality."
 readme = "README.md"
@@ -32,13 +32,13 @@ docs = ["mkdocs>=1.6,<2", "mkdocs-material>=9,<10", "mike>=2,<3"]
 Paper = "https://dl.acm.org/doi/10.1145/1082473.1082478"
 
 [tool.setuptools.dynamic]
-version = { attr = "thymos._version.__version__" }
+version = { attr = "alma_affect_kit._version.__version__" }
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
-thymos = ["py.typed"]
+alma_affect_kit = ["py.typed"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
