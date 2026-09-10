@@ -1,0 +1,23 @@
+# Character profile: the virtual student Sven (AAMAS'05).
+
+name: Sven
+
+personality:
+  openness: 0.3
+  conscientiousness: -0.6
+  extraversion: 0.7
+  agreeableness: 0.4
+  neuroticism: -0.1
+
+appraisal:
+  acts:
+    - act: Reprove
+      scope: direct
+      performer: Valerie
+      appraisals:
+        - {tag: BadEvent, desirability: -0.6}
+    - act: Encourage
+      scope: direct
+      performer: Valerie
+      appraisals:
+        - {tag: GoodEvent, desirability: 0.6}

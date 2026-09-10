@@ -1,0 +1,24 @@
+# Affect computation configuration (YAML form; times in seconds).
+# All values shown are the publication defaults; omit any key to keep
+# the default. Load with alma_affect_kit.load_config("affect.yaml").
+
+emotion_decay_time: 20.0
+decay_function: linear            # linear | exponential | tanhyp
+dominant_emotion_threshold: 0.4
+update_period: 0.5
+mood_change_time: 600.0           # 10 min, octant centre to octant centre
+mood_change_distance: 1.0         # ... adjacent centres (sqrt(3) = opposite)
+mood_return_time: 1200.0          # 20 min over the longest distance sqrt(3)
+mood_return_mode: idle            # idle | always
+vec_intensity_weighted: false
+
+# Optional overrides, merged over the paper's Table 2 / Mehrabian defaults:
+#
+# emotion_pad_map:
+#   Anger: [-0.51, 0.59, 0.25]
+#
+# personality_to_mood:
+#   pleasure: {extraversion: 0.21, agreeableness: 0.59, neuroticism: 0.19}
+#
+# personality_baselines:
+#   Joy: {extraversion: 0.15, agreeableness: 0.10}
