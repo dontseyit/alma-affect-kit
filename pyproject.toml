@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "thymos"
+dynamic = ["version"]
+description = "Python simulation engine for ALMA, A Layered Model of Affect (Gebhard, AAMAS'05): OCC emotions, PAD moods, Big Five personality."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["pyyaml>=6"]
+license = { text = "MIT" }
+authors = [{ name = "seyitzor", email = "seyitzor@gmail.com" }]
+keywords = [
+    "affect", "emotion", "mood", "personality", "OCC", "PAD", "big-five",
+    "ALMA", "virtual-characters", "games", "simulation", "affective-computing",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Games/Entertainment :: Simulation",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.optional-dependencies]
+docs = ["mkdocs>=1.6,<2", "mkdocs-material>=9,<10", "mike>=2,<3"]
+
+[project.urls]
+Paper = "https://dl.acm.org/doi/10.1145/1082473.1082478"
+
+[tool.setuptools.dynamic]
+version = { attr = "thymos._version.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+thymos = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
