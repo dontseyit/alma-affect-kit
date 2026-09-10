@@ -1,0 +1,75 @@
+site_name: alma-affect-kit
+site_description: >-
+  ALMA, A Layered Model of Affect (Gebhard, AAMAS'05) as a Python
+  simulation engine: OCC emotions, PAD moods, Big Five personality.
+repo_name: alma-affect-kit
+docs_dir: docs
+site_dir: site
+strict: true
+
+nav:
+  - Home: index.md
+  - Start:
+      - Installation: installation.md
+      - Usage: usage.md
+  - Reference:
+      - The Model: the-model.md
+      - Appraisal: appraisal.md
+      - Simulation: simulation.md
+      - Configuration: configuration.md
+      - API Reference: api-reference.md
+  - Examples: examples.md
+  - Fidelity Notes: fidelity.md
+  - Project:
+      - Versioning and Releases: releasing.md
+      - Changelog: changelog.md
+
+extra:
+  version:
+    provider: mike
+    default: latest
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Source Sans 3
+    code: IBM Plex Mono
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+markdown_extensions:
+  - tables
+  - toc:
+      permalink: true
+  - admonition
+  - attr_list
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      base_path: ["."]
+      check_paths: true
+
+plugins:
+  - search
