@@ -1,7 +1,6 @@
 # API Reference
 
-Everything below is importable from the top-level package:
-`from alma_affect_kit import ...`
+Everything below is importable from the top-level package `alma_affect_kit`
 
 ## Engine
 

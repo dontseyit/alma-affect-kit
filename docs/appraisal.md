@@ -59,8 +59,9 @@ absolute values.
 | praiseworthiness > 0, agency other | Admiration |
 | praiseworthiness < 0, agency other | Reproach |
 
-**Compounds (well-being × attribution, both `desirability` and
-`praiseworthiness` set in one EEC, no prospect):**
+**Compounds (well-being × attribution, no prospect)**
+
+- Both `desirability` and `praiseworthiness` set in one EEC 
 
 | Condition | Emotion |
 |---|---|
@@ -101,7 +102,7 @@ desirability +0.7.
 ## Merging: how compounds arise
 
 An appraisal rule may emit several basic appraisals for one input, the
-paper's example: an *attack* is a **bad event** *and* a **blameworthy
+paper's example: an "attack" is a **bad event** and a **blameworthy
 act of another** (Fig. 4).  OCC treats these as one situation appraised
 along several dimensions, which is what elicits the compound emotions.
 An attack appraised as a bad event (desirability −0.5) plus a
@@ -140,8 +141,11 @@ appraisal rules**, the Python counterpart of AffectML's rule classes:
 | `on_emotion_display(display, scope, *eecs, performer=None)` | visible emotion cues (`perceive_emotion_display`) | `self`, `other` |
 | `on_mood_display(display, scope, *eecs, performer=None)` | visible mood cues (`perceive_mood_display`) | `self`, `other` |
 
-Dispatch for an act: the performer matches its `self` rules, the
-target its `direct` rules, and everyone else their `indirect`
-(listener) rules.  A rule with `performer="Sven"` only fires for Sven's
-acts. All appraisals from one matched input share the input as 
+Dispatch for an act: 
+
+* the performer matches its `self` rules, 
+* the target its `direct` rules, 
+* and everyone else their `indirect` (listener) rules.  
+
+A rule with `performer="Sven"` only fires for Sven's acts. All appraisals from one matched input share the input as 
 their `cause` and are merged as described above.

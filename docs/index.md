@@ -1,14 +1,22 @@
 # alma-affect-kit v1.0.0
 
-**alma-affect-kit** is a faithful Python implementation of ALMA, A Layered Model
-of Affect (Patrick Gebhard, DFKI; AAMAS 2005), packaged as a reusable simulation engine
-and toolkit for affect modelling. It models three interacting layers of affect, **emotions**, **moods** and **personality**, driven by world events and read back.
+**alma-affect-kit** is a faithful Python implementation of ALMA, A Layered Model of Affect 
+(Patrick Gebhard, DFKI; AAMAS 2005), packaged as a reusable simulation engine and toolkit for affect modelling. 
+It models three interacting layers of affect, **emotions**, **moods** and **personality**, driven by world events.
 
-Simulation is deterministic and advances in time steps.
+You create an engine and populate it with characters. Each character has a Big Five personality profile and may also
+include a set of appraisal rules that define how it interprets events from its own perspective. During a session, you
+provide the engine with occurrences such as events, actions, displays, or direct appraisals, and advance the simulation
+over time.
+
+Each appraisal can trigger emotions that fade as time passes. While they remain active, these emotions shape the
+character's mood within PAD space. Once the situation settles, the mood gradually returns toward its baseline state. A
+character's dominant emotion and mood can then be expressed in everyday terms, such as "slightly hostile" or
+"moderately exuberant," making it possible to condition behaviour on those affective states.
 
 ## Pages
 
-| Page | What it covers |
+| Page | |
 |---|---|
 | [Installation](installation.md) | Requirements, install options, file formats |
 | [Usage](usage.md) | Quick start, characters, appraisals, rules, reading state |
@@ -19,21 +27,6 @@ Simulation is deterministic and advances in time steps.
 | [API Reference](api-reference.md) | The public API surface, module by module |
 | [Examples](examples.md) | All the code in one place: quick start, rules, game-loop integration, file templates |
 | [Fidelity Notes](fidelity.md) | What matches the papers exactly, and the documented choices where the papers are silent |
-
-## At a glance
-
-You create an engine and add characters. Each character has a Big Five
-personality and can optionally have a rule configuration that describes how it
-subjectively appraises.  For the rest of the session you do
-two things: tell the engine what happens (events, acts, displays, or
-direct appraisals) and advance simulated time.
-
-Each appraisal produces emotions that decay over time.  While they last,
-they pull the character's mood through PAD space, and when things quiet 
-the mood drifts back to its default mood.  At any point you can
-read a character's dominant emotion and its mood in plain words, such as
-*slightly hostile* or *moderate exuberant*, and branch the character's
-behaviour on them.
 
 ## Sources
 
@@ -50,7 +43,7 @@ behaviour on them.
 * A. Mehrabian. *Analysis of the Big-five Personality Factors in Terms of
   the PAD Temperament Model.* Australian Journal of Psychology 48(2), 1996.
 
-Important: alma-affect-kit is an independent reimplementation based on the published papers
+**Important:** alma-affect-kit is an independent reimplementation based on the published papers
 and is not affiliated with DFKI. ALMA is the original work of Patrick Gebhard (DFKI). 
 While this implementation aims to faithfully reproduce the published model, it may 
 contain deviations and cannot guarantee scientific accuracy. 
@@ -58,7 +51,9 @@ See [Fidelity Notes](fidelity.md) for further details.
 
 ---
 
-*This documentation is an [MkDocs](https://www.mkdocs.org/) site.  To
-preview it locally, run `pip install ".[docs]"` and then `mkdocs serve`;
-`mkdocs build` produces a static site.  The markdown files in `docs/`
-are the single source of truth.*
+**AI Disclaimer** 
+
+In this project, AI was used to extract information, generate code, and documentation under human guidance
+and oversight. It was used in various personal projects and subsequently shared with the open-source community.
+All documents and most code were human-reviewed and updated after the initial AI generation, but
+there may still be overlooked or sloppy parts.

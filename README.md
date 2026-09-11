@@ -98,6 +98,9 @@ mkdocs build --strict      # validate and build docs
 
 ---
 
-**AI Disclaimer:** This project is developed with human guidance and oversight, 
-assisted by AI tools to help with understanding, coding, documentation, and reviews.
-Every word of the documents was carefully read and edited after initial AI generation.
+**AI Disclaimer** 
+
+In this project, AI was used to extract information, generate code, and documentation under human guidance
+and oversight. It was used in various personal projects and subsequently shared with the open-source community.
+All documents and most code were human-reviewed and updated after the initial AI generation, but
+there may still be overlooked or sloppy parts.

@@ -36,7 +36,7 @@ against the paper themselves; the constants live in `emotion.py`,
 | The extravert joy baseline = 0.15 anchor | IVA'03 / ADS'04 |
 | AffectML document semantics (AffectComputation, CharacterAffect), expressed in YAML | AAMAS'05, Figs. 3–4 |
 
-## Documented choices (papers silent or ambiguous)
+## Documented choices
 
 ### Emotion intensity combination
 The papers say the absolute values of the EEC variables determine the

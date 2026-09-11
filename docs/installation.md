@@ -3,7 +3,11 @@
 ## Requirements
 
 * **Python ≥ 3.9** (tested through 3.14)
-* **PyYAML ≥ 6**, the one runtime dependency.
+* **PyYAML ≥ 6**, (runtime dependency)
+
+### Dev Dependencies
+
+* **mkdocs >=1.6, <2**
 
 ## Installing
 
@@ -15,9 +19,9 @@ Development:
 
 ```bash
 pip install -e ".[docs]" pytest
-pytest                 # test suite
-mkdocs serve           # docs site at http://127.0.0.1:8000
-mkdocs build --strict  # validate and build docs
+pytest                           # test suite
+mkdocs serve                     # docs site at http://127.0.0.1:8000
+mkdocs build --strict            # validate and build docs
 ```
 
 ## File formats
