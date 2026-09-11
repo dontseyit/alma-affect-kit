@@ -1,0 +1,1317 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="ALMA, A Layered Model of Affect (Gebhard, AAMAS'05) as a Python simulation engine: OCC emotions, PAD moods, Big Five personality.">
+      
+      
+      
+      
+        <link rel="prev" href="../examples/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Fidelity Notes - alma-affect-kit</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+3:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Source Sans 3";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fidelity-notes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="alma-affect-kit" class="md-header__button md-logo" aria-label="alma-affect-kit" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            alma-affect-kit
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Fidelity Notes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="alma-affect-kit" class="md-nav__button md-logo" aria-label="alma-affect-kit" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    alma-affect-kit
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../the-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appraisal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appraisal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simulation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fidelity Notes
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fidelity Notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#taken-verbatim-from-the-publications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Taken verbatim from the publications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documented-choices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documented choices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documented choices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#emotion-intensity-combination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Emotion intensity combination
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#personality-baseline-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Personality baseline table
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decay-curve-shapes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decay curve shapes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decay-towards-the-baseline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decay towards the baseline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-meaning-of-the-04-threshold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The meaning of the 0.4 threshold
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emotion-decay-time-20-s-vs-for-example-1-minute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Emotion decay time: 20 s vs "for example, 1 minute"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-octant-centres-define-the-mood-change-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which octant centres define the mood change time
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unspecified-liking-in-fortunes-of-others-appraisals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unspecified liking in fortunes-of-others appraisals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mood-return-time-10-vs-20-minutes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mood return time: 10 vs 20 minutes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mood-strength-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mood strength boundary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pullpush-geometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pull/push geometry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mood-return-while-emotions-are-active" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mood return while emotions are active
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virtual-emotion-centre-averaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Virtual emotion centre averaging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eec-merging-for-compound-emotions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EEC merging for compound emotions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sub-baseline-elicitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sub-baseline elicitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#affectml-represented-in-yaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AffectML represented in YAML
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beyond-the-papers-scope-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beyond the paper's scope (engineering)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#taken-verbatim-from-the-publications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Taken verbatim from the publications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documented-choices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documented choices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documented choices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#emotion-intensity-combination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Emotion intensity combination
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#personality-baseline-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Personality baseline table
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decay-curve-shapes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decay curve shapes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decay-towards-the-baseline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decay towards the baseline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-meaning-of-the-04-threshold" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The meaning of the 0.4 threshold
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emotion-decay-time-20-s-vs-for-example-1-minute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Emotion decay time: 20 s vs "for example, 1 minute"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-octant-centres-define-the-mood-change-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Which octant centres define the mood change time
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unspecified-liking-in-fortunes-of-others-appraisals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unspecified liking in fortunes-of-others appraisals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mood-return-time-10-vs-20-minutes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mood return time: 10 vs 20 minutes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mood-strength-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mood strength boundary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pullpush-geometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pull/push geometry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mood-return-while-emotions-are-active" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mood return while emotions are active
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virtual-emotion-centre-averaging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Virtual emotion centre averaging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eec-merging-for-compound-emotions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EEC merging for compound emotions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sub-baseline-elicitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sub-baseline elicitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#affectml-represented-in-yaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AffectML represented in YAML
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beyond-the-papers-scope-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beyond the paper's scope (engineering)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="fidelity-notes">Fidelity Notes<a class="headerlink" href="#fidelity-notes" title="Permanent link">&para;</a></h1>
+<p>This library reproduces every quantitative parameter published in the
+AAMAS'05 paper and its EmotionEngine companion papers (IVA'03, ADS'04).
+This page records exactly what is taken from the papers verbatim, and
+the documented choices made where the papers are silent or inconsistent.
+Everything in the second category is configurable.</p>
+<p><strong>How this was verified.</strong>  All 24 rows of Table 2 (PAD values and
+octants), all 8 octant names of Table 1, all nine Big Five → PAD
+regression coefficients, the paper's worked personality example and the
+Fig. 3 defaults were cross-checked programmatically against the text
+extracted from the published PDF, and are pinned in the test suite in
+full (not sampled).  Readers are encouraged to repeat the comparison
+against the paper themselves; the constants live in <code>emotion.py</code>,
+<code>personality.py</code> and <code>config.py</code>.</p>
+<h2 id="taken-verbatim-from-the-publications">Taken verbatim from the publications<a class="headerlink" href="#taken-verbatim-from-the-publications" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The 24 emotion types and their PAD mapping</td>
+<td>AAMAS'05, Table 2</td>
+</tr>
+<tr>
+<td>The eight mood octant names</td>
+<td>AAMAS'05, Table 1</td>
+</tr>
+<tr>
+<td>Mood strength = norm of the PAD vector, √3 in three equal parts (slightly / moderate / fully)</td>
+<td>AAMAS'05, §3</td>
+</tr>
+<tr>
+<td>Big Five → PAD default-mood regression (all coefficients)</td>
+<td>AAMAS'05, §3 (Mehrabian 1996)</td>
+</tr>
+<tr>
+<td>The worked personality example: (0.4, 0.8, 0.6, 0.3, 0.4) → (0.38, −0.08, 0.50), Relaxed</td>
+<td>AAMAS'05, §3, a test anchor</td>
+</tr>
+<tr>
+<td>Emotion decay 20 s, linear, 500 ms period; threshold 0.4</td>
+<td>AAMAS'05, Fig. 3 (see the note on the threshold's meaning below)</td>
+</tr>
+<tr>
+<td>Three decay functions are <em>named</em>: linear, exponential, tangens hyperbolicus</td>
+<td>IVA'03 / ADS'04 (their exact curves are not published, see below)</td>
+</tr>
+<tr>
+<td>Mood change time 10 min (octant centre to octant centre)</td>
+<td>AAMAS'05, §3</td>
+</tr>
+<tr>
+<td>Mood return time 20 min (over √3)</td>
+<td>AAMAS'05, §3</td>
+</tr>
+<tr>
+<td>Virtual emotion centre = centre of active emotions, intensity = average intensity, max 1.0</td>
+<td>AAMAS'05, §3</td>
+</tr>
+<tr>
+<td>Pull phase / push phase semantics</td>
+<td>AAMAS'05, §3 + Fig. 2</td>
+</tr>
+<tr>
+<td>EEC variables: desirability, praiseworthiness, appealingness, liking, likelihood, realization; signs select the emotion, magnitudes the intensity</td>
+<td>ADS'04, §3.2</td>
+</tr>
+<tr>
+<td>Basic appraisal tags (good/bad event, likely/unlikely future, act self/other, nice/nasty thing)</td>
+<td>IVA'03, Table 1</td>
+</tr>
+<tr>
+<td>Rule hierarchy: basic, act (self/direct/indirect), emotion display, mood display</td>
+<td>AAMAS'05, §4</td>
+</tr>
+<tr>
+<td>The extravert joy baseline = 0.15 anchor</td>
+<td>IVA'03 / ADS'04</td>
+</tr>
+<tr>
+<td>AffectML document semantics (AffectComputation, CharacterAffect), expressed in YAML</td>
+<td>AAMAS'05, Figs. 3–4</td>
+</tr>
+</tbody>
+</table>
+<h2 id="documented-choices">Documented choices<a class="headerlink" href="#documented-choices" title="Permanent link">&para;</a></h2>
+<h3 id="emotion-intensity-combination">Emotion intensity combination<a class="headerlink" href="#emotion-intensity-combination" title="Permanent link">&para;</a></h3>
+<p>The papers say the absolute values of the EEC variables determine the
+intensities but give no formula for emotions with two contributing
+variables (hope, fear, the confirmations, fortunes-of-others, the
+compounds, love/hate).  <strong>Choice:</strong> the mean of the absolute values of
+the participating variables.</p>
+<h3 id="personality-baseline-table">Personality baseline table<a class="headerlink" href="#personality-baseline-table" title="Permanent link">&para;</a></h3>
+<p>Only the joy = 0.15 anchor is published, plus qualitative guidance
+(positive emotions rise with extraversion and agreeableness, negative
+with neuroticism; conscientiousness and openness influence the
+attribution and attraction groups).  <strong>Choice:</strong> positive emotions get
+weights <code>{extraversion: 0.15, agreeableness: 0.10}</code>, negative
+<code>{neuroticism: 0.15}</code>, with <code>{conscientiousness: 0.05}</code> added for
+attribution/compound emotions and <code>{openness: 0.05}</code> for attraction
+emotions; baselines clamp at 0.  Override any of it via
+<code>AffectConfig.personality_baselines</code>.</p>
+<h3 id="decay-curve-shapes">Decay curve shapes<a class="headerlink" href="#decay-curve-shapes" title="Permanent link">&para;</a></h3>
+<p>Only the <em>names</em> of the three decay functions are published.
+<strong>Choice:</strong> linear falls to zero at the decay time; exponential is
+<code>exp(−5·t/T)</code> (≈0.7 % remaining at the decay time, then cut to zero);
+tangens hyperbolicus is a normalised <code>1 − tanh(6·t/T − 3)</code> S-curve.  All
+three reach 1 at t = 0 and 0 at t = T; the intermediate shape is ours.</p>
+<h3 id="decay-towards-the-baseline">Decay towards the baseline<a class="headerlink" href="#decay-towards-the-baseline" title="Permanent link">&para;</a></h3>
+<p>IVA'03 says personality <em>biases emotions with a baseline intensity</em>
+(extravert joy baseline 0.15, introvert 0.0).  <strong>Choice:</strong> the baseline
+is treated as the emotion's resting level, elicited intensities are
+raised by it and decay back <em>to</em> it, not to zero.  With
+<code>apply_personality_bias=False</code> every baseline is zero and emotions decay
+to zero.</p>
+<h3 id="the-meaning-of-the-04-threshold">The meaning of the 0.4 threshold<a class="headerlink" href="#the-meaning-of-the-04-threshold" title="Permanent link">&para;</a></h3>
+<p>Fig. 3 names the element <code>EmotionBaseline threshold="0.4"</code>, while the
+companion papers describe a threshold that "the most dominant emotion"
+must exceed "to have an impact on the character's behaviour".
+<strong>Choice:</strong> the value is read as that behaviour threshold
+(<code>dominant_emotion_threshold</code>); it does not gate whether an emotion
+influences the mood.</p>
+<h3 id="emotion-decay-time-20-s-vs-for-example-1-minute">Emotion decay time: 20 s vs "for example, 1 minute"<a class="headerlink" href="#emotion-decay-time-20-s-vs-for-example-1-minute" title="Permanent link">&para;</a></h3>
+<p>The Fig. 3 document sets <code>EmotionDecay time="20000"</code>; the running text
+mentions decay "over a certain amount of time (for example, 1 minute)".
+<strong>Choice:</strong> the document value (20 s) is the default.</p>
+<h3 id="which-octant-centres-define-the-mood-change-time">Which octant centres define the mood change time<a class="headerlink" href="#which-octant-centres-define-the-mood-change-time" title="Permanent link">&para;</a></h3>
+<p>The paper calibrates the pull/push speed on the time "to move a current
+mood from one mood octant centre to another one" without naming the
+pair.  <strong>Choice:</strong> adjacent centres (distance 1.0) by default; the
+distance is exposed as <code>mood_change_distance</code> (√2 across a face, √3 for
+opposite centres).  Only the speed scale changes.</p>
+<h3 id="unspecified-liking-in-fortunes-of-others-appraisals">Unspecified liking in fortunes-of-others appraisals<a class="headerlink" href="#unspecified-liking-in-fortunes-of-others-appraisals" title="Permanent link">&para;</a></h3>
+<p>When an event concerning another character is appraised without a
+<code>liking</code> value, OCC needs a sign to choose between happy-for/pity and
+resentment/gloating.  <strong>Choice:</strong> unspecified liking counts as mildly
+positive (0.5).</p>
+<h3 id="mood-return-time-10-vs-20-minutes">Mood return time: 10 vs 20 minutes<a class="headerlink" href="#mood-return-time-10-vs-20-minutes" title="Permanent link">&para;</a></h3>
+<p>The paper's running text says the mood return time "currently is
+20 minutes" while its Fig. 3 example document shows
+<code>MoodReturn time="600000"</code> (10 minutes).  <strong>Choice:</strong> the text value
+(1200 s) is the default.</p>
+<h3 id="mood-strength-boundary">Mood strength boundary<a class="headerlink" href="#mood-strength-boundary" title="Permanent link">&para;</a></h3>
+<p>The paper labels its default-mood example (norm ≈ 0.633) <em>slightly</em>
+relaxed, although by its own thirds-of-√3 rule (boundary ≈ 0.577) it is
+just inside <em>moderate</em>, presumably rounding.  <strong>Choice:</strong> the stated
+rule is followed exactly, so that example reads <em>moderate relaxed</em> here.</p>
+<h3 id="pullpush-geometry">Pull/push geometry<a class="headerlink" href="#pullpush-geometry" title="Permanent link">&para;</a></h3>
+<p>The paper describes pull/push in prose and a 2-D figure.  <strong>Choice:</strong>
+"between the zero point and the VEC" is implemented as the mood's
+projection onto the origin→VEC ray not yet reaching the VEC's distance;
+pull moves straight towards the VEC, push moves radially outward (deeper
+into the mood's current octant), clamped to the cube.  Speed is the
+published calibration: <code>vec_intensity / mood_change_time</code> PAD units per
+second.</p>
+<h3 id="mood-return-while-emotions-are-active">Mood return while emotions are active<a class="headerlink" href="#mood-return-while-emotions-are-active" title="Permanent link">&para;</a></h3>
+<p>The paper states the return tendency but not whether it applies during
+active emotions.  <strong>Choice:</strong> default <code>mood_return_mode="idle"</code> (return
+only when no VEC exists, otherwise the two forces of comparable
+magnitude would largely cancel); <code>"always"</code> is available.</p>
+<h3 id="virtual-emotion-centre-averaging">Virtual emotion centre averaging<a class="headerlink" href="#virtual-emotion-centre-averaging" title="Permanent link">&para;</a></h3>
+<p>"The virtual emotion centre of all currently active emotions" is read as
+the plain average of their PAD points (the paper assigns intensity a
+separate role: the average of intensities).  <strong>Choice:</strong> plain average
+by default; <code>vec_intensity_weighted=True</code> switches to an
+intensity-weighted position.</p>
+<h3 id="eec-merging-for-compound-emotions">EEC merging for compound emotions<a class="headerlink" href="#eec-merging-for-compound-emotions" title="Permanent link">&para;</a></h3>
+<p>OCC's compound emotions (anger, remorse, gratitude, gratification)
+require desirability and praiseworthiness appraised for <em>one</em> situation.
+The paper's Fig. 4 shows an attack appraised as BadEvent + BadActOther
+within one rule but doesn't state the combination mechanics.
+<strong>Choice:</strong> basic appraisals emitted for the same input are merged into
+one EEC when compatible, same cause, same event structure (actual vs
+prospective vs confirmed), no variable set on both sides with different
+values, no explicit agency disagreement.  <code>merge=False</code> disables it.</p>
+<h3 id="sub-baseline-elicitations">Sub-baseline elicitations<a class="headerlink" href="#sub-baseline-elicitations" title="Permanent link">&para;</a></h3>
+<p>Unspecified in the papers.  <strong>Choice:</strong> an elicitation weaker than the
+personality baseline is raised to the baseline and stays active for the
+decay time (rather than being dropped), so mild stimuli still reach the
+mood dynamics.</p>
+<h3 id="affectml-represented-in-yaml">AffectML represented in YAML<a class="headerlink" href="#affectml-represented-in-yaml" title="Permanent link">&para;</a></h3>
+<p>The paper defines AffectML as an XML language.  This library keeps
+AffectML's <em>semantics</em>, the global computation parameters, the
+personality definition and the complete appraisal rule hierarchy, but
+represents documents in YAML (JSON accepted), with times in seconds
+rather than milliseconds.  Every AffectML construct has a one-to-one
+YAML equivalent (mapping table on the <a href="../configuration/">Configuration</a>
+page); the paper's own Fig. 3 and Fig. 4 documents are part of the
+test suite in translated form.  Two things go slightly beyond the
+paper's schema: the mood change time is a first-class parameter (the
+paper states it only in prose), and basic rules can be keyed by an
+arbitrary event name in addition to the paper's tag-name form.</p>
+<h2 id="beyond-the-papers-scope-engineering">Beyond the paper's scope (engineering)<a class="headerlink" href="#beyond-the-papers-scope-engineering" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Strict validation everywhere (value ranges, unknown keys/tags/fields,
+  trait-name typos), load-time <code>ValueError</code> rather than silent drift.</li>
+<li>Exact PAD vector algebra; the mood is clamped into the cube only at
+  assignment points.</li>
+<li>Deterministic <code>dt</code>-driven stepping instead of a wall-clock thread.</li>
+<li>The paper's future-work items are <em>not</em> implemented (and noted here
+  for honesty): mood does not yet influence emotion intensity, appraisal
+  rules are static at runtime, and there is no group-mood aggregation.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../examples/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Examples">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Examples
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
