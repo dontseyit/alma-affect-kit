@@ -17,16 +17,10 @@ scientifically accurate. See [Fidelity Notes](docs/fidelity.md) for further deta
 
 ## Documentation
 
-The documentation is an MkDocs site built from `docs/*`.
+MkDocs site built from `docs/*`. See [docs/](docs/index.md) for individual files.
 
-See [docs/](docs/index.md) for complete documentation, including:
-- [Usage](docs/usage.md): how to work with the engine
-- [The Model](docs/the-model.md): the theory behind the three layers
-- [Appraisal](docs/appraisal.md): emotion eliciting conditions and rules
-- [Simulation](docs/simulation.md): time stepping and dynamics
-- [Configuration](docs/configuration.md): all parameters and options
-- [API Reference](docs/api-reference.md): the public API
-- [Examples](docs/examples.md): runnable code and file templates
+All available at https://dontseyit.github.io/alma-affect-kit.
+
 
 ## Install
 
