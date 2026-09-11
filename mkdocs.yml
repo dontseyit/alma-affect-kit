@@ -9,20 +9,15 @@ strict: true
 
 nav:
   - Home: index.md
-  - Start:
-      - Installation: installation.md
-      - Usage: usage.md
-  - Reference:
-      - The Model: the-model.md
-      - Appraisal: appraisal.md
-      - Simulation: simulation.md
-      - Configuration: configuration.md
-      - API Reference: api-reference.md
+  - Installation: installation.md
+  - Usage: usage.md
+  - The Model: the-model.md
+  - Appraisal: appraisal.md
+  - Simulation: simulation.md
+  - Configuration: configuration.md
+  - API Reference: api-reference.md
   - Examples: examples.md
   - Fidelity Notes: fidelity.md
-  - Project:
-      - Versioning and Releases: releasing.md
-      - Changelog: changelog.md
 
 extra:
   version:

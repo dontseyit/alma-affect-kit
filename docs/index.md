@@ -1,11 +1,8 @@
-# alma-affect-kit v0.1.0
+# alma-affect-kit v1.0.0
 
 **alma-affect-kit** is a faithful Python implementation of ALMA, A Layered Model
-of Affect (Patrick Gebhard, DFKI; AAMAS 2005), packaged as a standalone,
-reusable simulation engine.  It gives characters in games and simulations
-three interacting layers of affect, **emotions**, **moods** and
-**personality**, driven by world events and read back to control
-behaviour. 
+of Affect (Patrick Gebhard, DFKI; AAMAS 2005), packaged as a reusable simulation engine
+and toolkit for affect modelling. It models three interacting layers of affect, **emotions**, **moods** and **personality**, driven by world events and read back.
 
 Simulation is deterministic and advances in time steps.
 
@@ -22,12 +19,10 @@ Simulation is deterministic and advances in time steps.
 | [API Reference](api-reference.md) | The public API surface, module by module |
 | [Examples](examples.md) | All the code in one place: quick start, rules, game-loop integration, file templates |
 | [Fidelity Notes](fidelity.md) | What matches the papers exactly, and the documented choices where the papers are silent |
-| [Versioning and Releases](releasing.md) | The semantic-versioning policy (model changes are breaking), versioned docs, release checklist |
-| [Changelog](changelog.md) | What changed in each release |
 
 ## At a glance
 
-You create an engine and add characters.  Each character has a Big Five
+You create an engine and add characters. Each character has a Big Five
 personality and can optionally have a rule configuration that describes how it
 subjectively appraises.  For the rest of the session you do
 two things: tell the engine what happens (events, acts, displays, or
