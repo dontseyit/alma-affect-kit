@@ -1,4 +1,4 @@
-# alma-affect-kit: A faithful Python implementation of **ALMA**
+# ALMA Affect Kit
 
 A faithful, standalone Python implementation of **ALMA** (Patrick Gebhard,
 DFKI, *ALMA: A Layered Model of Affect*, AAMAS 2005) as a reusable
