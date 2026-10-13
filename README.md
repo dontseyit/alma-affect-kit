@@ -14,6 +14,10 @@ ALMA is the original work of Patrick Gebhard (DFKI). While this implementation a
 reproduce the published model, it may contain deviations and cannot be guaranteed to be 
 scientifically accurate. See [Fidelity Notes](docs/fidelity.md) for further details.
 
+<!-- Ko-fi badge -->
+<a href="https://ko-fi.com/dontseyit">
+  <img src="https://img.shields.io/badge/ko--fi%20-Buy%20me%20a%20pretzel-ff5e5b?logo=ko-fi&logoColor=white" alt="Ko-fi">
+</a>
 
 ## Documentation
 
